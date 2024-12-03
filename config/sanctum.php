@@ -16,12 +16,12 @@ return [
     */
 
     'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', sprintf(
-    '%s%s',
-    'localhost,localhost:3000,127.0.0.1,127.0.0.1:8000,::1',
-    method_exists(Sanctum::class, 'currentApplicationUrlWithPort') 
-        ? Sanctum::currentApplicationUrlWithPort() 
-        : ''
-))),
+        '%s%s',
+        'localhost,localhost:3000,127.0.0.1,127.0.0.1:8000,::1',
+        method_exists(Sanctum::class, 'currentApplicationUrlWithPort') 
+            ? Sanctum::currentApplicationUrlWithPort() 
+            : ''
+    ))),
 
     /*
     |--------------------------------------------------------------------------
@@ -48,7 +48,7 @@ return [
     |
     */
 
-    'expiration' => null,
+    'expiration' => env('SANCTUM_TOKEN_EXPIRATION', null),
 
     /*
     |--------------------------------------------------------------------------
